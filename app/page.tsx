@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useBackButton, useInitData, useMainButton } from '@tma.js/sdk-react';
 
+import { Catalog } from '@/components/Catalog';
+import { TmaSDKLoader } from '@/components/TmaSDKLoader';
+
 function MainButtonTest() {
   const mainButton = useMainButton();
   const backButton = useBackButton();
@@ -76,8 +79,11 @@ function InitData() {
 export default function Home() {
   return (
     <>
-      <MainButtonTest/>
-      <InitData/>
+      <TmaSDKLoader>
+        <MainButtonTest/>
+        <InitData/>
+      </TmaSDKLoader>
+      <Catalog />
     </>
   );
 }
